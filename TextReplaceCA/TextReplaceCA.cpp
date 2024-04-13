@@ -84,7 +84,7 @@ extern "C" UINT __stdcall InitTextReplace(MSIHANDLE hMsi)
 	try
 	{
 		MsiView view = session.OpenView(xmlSearchQuery);
-    MsiViewEncoder encoder(0b11100); //Marks the last 3 fields as formatted;
+    MsiViewEncoder encoder(0b111000); //Marks the last 3 fields as formatted when startIndex=1 and endIndex=5;
     session.LogMessage(__FUNCTIONW__,  session.EvaluateFormattedString(L"$Comp1 = ").c_str());
     INSTALLSTATE installed, action;
     DWORD err = MsiGetComponentState(session, L"Comp1", &installed, &action);
